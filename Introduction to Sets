@@ -1,0 +1,22 @@
+def average(array):
+    """
+    Calculates the average of distinct elements in an array.
+
+    Args:
+        array: A list of integers.
+
+    Returns:
+        The average of the distinct values as a float.
+    """
+    # Convert the list to a set to get distinct elements
+    distinct_heights = set(array)
+
+    # Calculate the sum of the distinct elements
+    sum_of_distinct = sum(distinct_heights)
+
+    # Count the number of distinct elements
+    count_of_distinct = len(distinct_heights)
+
+    # Calculate and return the average
+    return sum_of_distinct / count_of_distinct
+
