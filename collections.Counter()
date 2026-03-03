@@ -1,0 +1,31 @@
+from collections import Counter
+
+# Read the total number of shoes (not strictly needed for the logic, but part of input format)
+X = int(input())
+
+# Read the available shoe sizes and store them in a Counter
+# map(int, input().split()) converts the input string of sizes into a list of integers
+# Counter counts the frequency of each shoe size
+shoe_sizes_counter = Counter(map(int, input().split()))
+
+# Read the number of customers
+N = int(input())
+
+# Initialize total earnings
+total_earnings = 0
+
+# Iterate through each customer
+for _ in range(N):
+    # Read the desired size and price for each customer
+    # Use map(int, input().split()) for integer conversion
+    size, price = map(int, input().split())
+
+    # Check if the desired shoe size is in stock (count > 0)
+    if shoe_sizes_counter.get(size, 0) > 0: # Using .get() is a safe way to check if a key exists, defaulting to 0 if it doesn't
+        # Add the price to total earnings
+        total_earnings += price
+        # Decrement the stock of the sold shoe size
+        shoe_sizes_counter[size] -= 1
+
+# Print the final total earnings
+print(total_earnings)
