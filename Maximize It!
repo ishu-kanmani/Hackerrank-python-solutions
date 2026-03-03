@@ -1,0 +1,38 @@
+import itertools
+
+def maximize_it():
+    try:
+        # Read K and M from the first line of input
+        k_m_input = list(map(int, input().strip().split()))
+        if not k_m_input:
+            return
+        K, M = k_m_input
+
+        # Read the K lists, stripping the first element (which is the count)
+        lists_to_process = []
+        for _ in range(K):
+            row = list(map(int, input().strip().split()))
+            # Append only the elements, skipping the first number in the line
+            lists_to_process.append(row[1:])
+        
+        # Use itertools.product to get all combinations of elements
+        # The asterisk (*) unpacks the list of lists as arguments to product()
+        all_combinations = itertools.product(*lists_to_process)
+        
+        # Calculate S = sum(X_i^2) % M for each combination and find the maximum
+        max_s = 0
+        for combination in all_combinations:
+            current_s = sum(x**2 for x in combination) % M
+            if current_s > max_s:
+                max_s = current_s
+        
+        # Print the final result
+        print(max_s)
+
+    except EOFError:
+        pass
+    except ValueError:
+        pass
+
+if __name__ == '__main__':
+    maximize_it()
