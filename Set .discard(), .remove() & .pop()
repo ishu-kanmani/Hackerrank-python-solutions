@@ -1,0 +1,25 @@
+n = int(input())
+s = set(map(int, input().split()))
+N = int(input())
+
+# Dictionary to map command strings to their corresponding set methods
+# using 'getattr' is an alternative approach
+methods = {
+    'pop': s.pop,
+    'remove': s.remove,
+    'discard': s.discard
+}
+
+for _ in range(N):
+    command_args = input().split()
+    cmd = command_args[0]
+    
+    if len(command_args) == 1:
+        # For 'pop' command, which takes no arguments
+        methods[cmd]()
+    else:
+        # For 'remove' and 'discard', which need an integer argument
+        value = int(command_args[1])
+        methods[cmd](value)
+
+print(sum(s))
