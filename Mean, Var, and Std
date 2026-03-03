@@ -1,0 +1,20 @@
+import numpy as np
+
+# Set print options for compatibility with HackerRank's expected output format (optional but recommended)
+# np.set_printoptions(legacy='1.13') # Some users report this helps with formatting issues in older test cases
+
+# Read input for N (rows) and M (columns)
+n, m = map(int, input().split())
+
+# Read the data into a list of lists, then convert to a NumPy array of type int
+my_array = np.array([list(map(int, input().split())) for _ in range(n)])
+
+# Calculate and print the Mean along axis 1 (rows)
+print(np.mean(my_array, axis=1))
+
+# Calculate and print the Variance along axis 0 (columns)
+print(np.var(my_array, axis=0))
+
+# Calculate and print the Standard Deviation of the flattened array
+# Rounding to 11 or 12 decimal places is often required to pass all test cases due to output formatting
+print(round(np.std(my_array), 11))
