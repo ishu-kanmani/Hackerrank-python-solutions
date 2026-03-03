@@ -1,0 +1,22 @@
+from collections import defaultdict
+
+# Read n and m
+n, m = map(int, input().split())
+
+# Create a defaultdict where each new key gets an empty list
+d = defaultdict(list)
+
+# Populate the dictionary with words from Group A and their 1-based indices
+for i in range(1, n + 1):
+    word = input()
+    d[word].append(i)
+
+# Process words from Group B
+for _ in range(m):
+    word_B = input()
+    if word_B in d:
+        # Unpack and print the list of indices as space-separated integers
+        print(*d[word_B])
+    else:
+        # If the word is not in Group A, print -1
+        print("-1")
