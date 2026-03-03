@@ -1,0 +1,11 @@
+# Read Input
+n = int(input())
+english = set(map(int, input().split()))
+m = int(input())
+french = set(map(int, input().split()))
+
+# Perform union operation
+union_set = english.union(french)
+
+# Print the length
+print(len(union_set))
