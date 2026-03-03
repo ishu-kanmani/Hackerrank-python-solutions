@@ -1,0 +1,17 @@
+from itertools import combinations
+
+# Read input
+N = int(input())  # Length of the list (discarded in this approach as not needed for combinations logic directly)
+arr = input().split() # The list of letters
+K = int(input()) # The number of indices to be selected
+
+# Generate all combinations of K elements from the array
+comb_list = list(combinations(arr, K)) #
+
+# Count combinations that contain the letter 'a'
+count_a_in_comb = [1 for comb in comb_list if 'a' in comb]
+count_a = sum(count_a_in_comb)
+
+# Calculate and print the probability
+probability = count_a / len(comb_list)
+print(f"{probability:.3f}") # Output formatted to 3 decimal places
