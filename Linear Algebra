@@ -1,0 +1,10 @@
+import numpy as np
+
+# Read the size of the square matrix
+N = int(input())
+
+# Read the matrix elements and convert to a NumPy array of floats
+A = np.array([input().split() for _ in range(N)], float)
+
+# Calculate the determinant and round it to 2 decimal places
+print(round(np.linalg.det(A), 2))
