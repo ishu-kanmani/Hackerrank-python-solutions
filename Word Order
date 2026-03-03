@@ -1,0 +1,24 @@
+from collections import OrderedDict
+
+def solve_word_order():
+    # Read the number of words
+    n = int(input())
+    
+    # Use OrderedDict to store words and their counts while maintaining order
+    word_counts = OrderedDict()
+    
+    for _ in range(n):
+        word = input()
+        if word in word_counts:
+            word_counts[word] += 1
+        else:
+            word_counts[word] = 1
+            
+    # Output the number of distinct words
+    print(len(word_counts))
+    
+    # Output the occurrences in the order of first appearance
+    # The * operator unpacks the values, and ' '.join converts them to a space-separated string
+    print(*word_counts.values())
+
+solve_word_order()
