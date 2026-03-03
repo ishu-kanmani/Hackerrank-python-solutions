@@ -1,0 +1,23 @@
+from html.parser import HTMLParser
+
+# Custom HTML parser class
+class MyHTMLParser(HTMLParser):
+    def handle_starttag(self, tag, attrs):
+        """
+        Overrides the method to handle start tags and their attributes.
+        """
+        print(tag)
+        for attr_name, attr_value in attrs:
+            print(f"-> {attr_name} > {attr_value}")
+
+if __name__ == '__main__':
+    # Read the number of lines in the HTML code snippet
+    n = int(input())
+    
+    # Read the HTML code snippet and join the lines into a single string
+    html_code = '\n'.join([input() for _ in range(n)])
+    
+    # Create an instance of the HTML parser and feed it the HTML code
+    parser = MyHTMLParser()
+    parser.feed(html_code)
+    parser.close()
