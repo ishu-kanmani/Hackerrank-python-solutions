@@ -1,0 +1,12 @@
+import numpy
+
+# Read the two lines of input and convert them to integer numpy arrays
+A = numpy.array(input().split(), int)
+B = numpy.array(input().split(), int)
+
+# Print the inner product
+print(numpy.inner(A, B))
+
+# Print the outer product
+print(numpy.outer(A, B))
+
