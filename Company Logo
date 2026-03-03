@@ -1,0 +1,12 @@
+import collections
+
+if __name__ == '__main__':
+    s = input().strip()
+    # Sort the string alphabetically first to ensure characters with the same count are handled correctly
+    s_sorted = sorted(s)
+    # Use Counter to count frequencies and get the top 3 most common
+    s_counter = collections.Counter(s_sorted).most_common(3)
+    
+    # Print the character and its count
+    for char, count in s_counter:
+        print(char, count)
