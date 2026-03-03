@@ -1,0 +1,10 @@
+import cmath
+
+# Read the complex number input from the user
+z = complex(input())
+
+# Calculate and print the modulus (r)
+print(abs(z))
+
+# Calculate and print the phase angle (phi)
+print(cmath.phase(z))
