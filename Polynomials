@@ -1,0 +1,13 @@
+import numpy
+
+# Read the coefficients of the polynomial P
+# The coefficients are given as space-separated floats in the first line of input
+P = list(map(float, input().split()))
+
+# Read the value of x at which to evaluate the polynomial
+# The value is given as a single integer (or float) in the second line of input
+x = int(input())
+
+# Use numpy.polyval to evaluate the polynomial
+# The function takes the coefficients (highest degree first) and the value of x
+print(numpy.polyval(P, x))
