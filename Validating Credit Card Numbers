@@ -1,0 +1,31 @@
+import re
+
+# Read the number of credit card strings to validate
+N = int(input())
+for _ in range(N):
+    card_number = input().strip()
+    
+    # 1. Check general format with a regex (structure, length, start digit, valid separators)
+    # The pattern matches:
+    # - Starts with 4, 5, or 6: ^[456]
+    # - Followed by 15 digits OR groups of 4 digits separated by hyphens: 
+    #   (\d{15}|(\d{3}(-\d{4}){3}$)
+    # - Only valid characters (digits and optional hyphens in correct positions)
+    # The fullmatch ensures the pattern covers the entire string
+    format_match = re.fullmatch(r"^[456](\d{15}|\d{3}(-\d{4}){3})$", card_number)
+    
+    if format_match:
+        # 2. If format is valid, remove hyphens for the consecutive digit check
+        processed_card = card_number.replace("-", "")
+        
+        # Check for 4 or more consecutive repeated digits
+        # (?!...) is a negative lookahead assertion
+        # (\d) captures a digit, \1{3,} matches 3 or more repetitions of the captured digit
+        consecutive_match = re.search(r"(\d)\1{3,}", processed_card)
+        
+        if not consecutive_match:
+            print("Valid")
+        else:
+            print("Invalid")
+    else:
+        print("Invalid")
