@@ -1,0 +1,22 @@
+import re
+
+# Read number of test cases
+n = int(input())
+
+for _ in range(n):
+    uid = input().strip()
+    
+    # 1. Check length is 10
+    # 2. Check for at least 2 uppercase characters
+    # 3. Check for at least 3 digits
+    # 4. Check for only alphanumeric characters
+    # 5. Check for no repeating characters
+    
+    if (len(uid) == 10 and 
+        re.search(r'(.*[A-Z]){2,}', uid) and 
+        re.search(r'(.*\d){3,}', uid) and 
+        re.match(r'^[a-zA-Z0-9]+$', uid) and 
+        len(set(uid)) == 10):
+        print("Valid")
+    else:
+        print("Invalid")
