@@ -1,0 +1,14 @@
+import numpy
+
+# Read the dimension N
+n = int(input())
+
+# Read the first array (matrix A)
+# The input is read line by line, split into integers, and converted to a numpy array
+a = numpy.array([input().split() for _ in range(n)], int)
+
+# Read the second array (matrix B)
+b = numpy.array([input().split() for _ in range(n)], int)
+
+# Compute the matrix product using numpy.dot() and print the result
+print(numpy.dot(a, b))
