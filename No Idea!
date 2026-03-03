@@ -1,0 +1,17 @@
+# Read n and m (not strictly necessary for the calculation but part of input format)
+_ = input().split() 
+
+# Read the array of integers as strings
+array_elements = input().split()
+
+# Read the like and dislike sets
+like_set = set(input().split())
+dislike_set = set(input().split())
+
+# Calculate happiness using a generator expression
+# (i in like_set) evaluates to 1 if True, 0 if False
+# (i in dislike_set) evaluates to 1 if True, 0 if False
+happiness = sum((i in like_set) - (i in dislike_set) for i in array_elements)
+
+# Print the final happiness
+print(happiness)
