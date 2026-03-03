@@ -1,0 +1,24 @@
+from collections import OrderedDict
+
+# Initialize OrderedDict to store item_name: net_price
+ordered_dictionary = OrderedDict()
+
+# Read the number of items
+n = int(input())
+
+for _ in range(n):
+    # Split input to separate name and price
+    items = input().split()
+    price = int(items[-1])
+    # Join name in case it has multiple words
+    item_name = " ".join(items[:-1])
+    
+    # Accumulate price if item exists, else create new entry
+    if item_name in ordered_dictionary:
+        ordered_dictionary[item_name] += price
+    else:
+        ordered_dictionary[item_name] = price
+
+# Print results in order of first occurrence
+for item, price in ordered_dictionary.items():
+    print(item, price)
