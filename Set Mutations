@@ -1,0 +1,9 @@
+ = int(input()) 
+A = set(map(int, input().split())) 
+N = int(input()) 
+for _ in range(N):
+    operation_details = input().split()
+    operation_name = operation_details[0]
+    new_set = set(map(int, input().split()))
+    getattr(A, operation_name)(new_set)
+print(sum(A))
