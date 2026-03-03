@@ -1,0 +1,14 @@
+from collections import namedtuple
+
+n = int(input())
+fields = input().split()
+Student = namedtuple('Student', fields)
+total_marks = 0
+
+for _ in range(n):
+    line = input().split()
+    student = Student(*line)
+    total_marks += int(student.MARKS)
+
+average_marks = total_marks / n
+print(f'{average_marks:.2f}')
