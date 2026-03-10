@@ -1,0 +1,7 @@
+import numpy
+# Set print options to ensure proper alignment, required for some HackerRank environments
+numpy.set_printoptions(legacy='1.13')
+# Read input N and M
+n, m = map(int, input().split())
+# Print the 2D array with 1s on diagonal
+print(numpy.eye(n, m))
