@@ -1,0 +1,13 @@
+import numpy
+
+# Read dimensions N and M
+n, m = map(int, input().split())
+
+# Read the matrix elements
+arr = numpy.array([list(map(int, input().split())) for _ in range(n)])
+
+# Print transpose
+print(numpy.transpose(arr))
+
+# Print flattened
+print(arr.flatten())
