@@ -1,0 +1,10 @@
+import numpy as np
+
+# Read input dimensions as a tuple
+nums = tuple(map(int, input().split()))
+
+# Print zeros array of shape
+print(np.zeros(nums, dtype=int))
+
+# Print ones array of shape
+print(np.ones(nums, dtype=int))
