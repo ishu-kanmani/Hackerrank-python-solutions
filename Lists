@@ -1,0 +1,37 @@
+def process_commands():
+    # Initialize an empty list
+    my_list = []
+
+    # Read the number of commands
+    N = int(input())
+
+    # Iterate through each command
+    for _ in range(N):
+        command_line = input().split()
+        command_type = command_line[0]
+
+        if command_type == "insert":
+            # Get the index (i) and element (e)
+            i = int(command_line[1])
+            e = int(command_line[2])
+            my_list.insert(i, e)
+        elif command_type == "print":
+            print(my_list)
+        elif command_type == "remove":
+            # Get the element (e) to remove
+            e = int(command_line[1])
+            my_list.remove(e)
+        elif command_type == "append":
+            # Get the element (e) to append
+            e = int(command_line[1])
+            my_list.append(e)
+        elif command_type == "sort":
+            my_list.sort()
+        elif command_type == "pop":
+            my_list.pop()
+        elif command_type == "reverse":
+            my_list.reverse()
+
+if __name__ == "__main__":
+    process_commands()
+
