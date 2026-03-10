@@ -1,0 +1,19 @@
+import numpy as np
+
+# Read dimensions N, M
+n, m = map(int, input().split())
+
+# Create 2D array
+arr = np.array([input().split() for _ in range(n)], int)
+
+# Compute sum along axis 0
+sum_arr = np.sum(arr, axis=0)
+
+# Compute product of the sum result
+result = np.prod(sum_arr, axis=0)
+
+print(result)
+
+
+
+
