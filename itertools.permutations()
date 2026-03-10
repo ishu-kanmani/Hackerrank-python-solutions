@@ -1,0 +1,26 @@
+from itertools import permutations
+
+def solve():
+    """
+    Reads input, generates permutations, and prints them in sorted order.
+    """
+    try:
+        # Read input from STDIN: two strings separated by a space
+        user_input = input().split()
+        s = user_input[0]
+        k = int(user_input[1])
+    except (EOFError, ValueError, IndexError):
+        return
+
+    # Sort the string first to ensure permutations are generated in lexicographical order
+    sorted_s = sorted(s)
+
+    # Generate the permutations of length k
+    perms = list(permutations(sorted_s, k))
+
+    # Print each permutation, joined as a string, on a new line
+    for p in perms:
+        print("".join(p))
+
+if __name__ == "__main__":
+    solve()
