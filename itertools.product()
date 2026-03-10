@@ -1,0 +1,9 @@
+from itertools import product
+
+# Read input, convert elements to integers
+A = list(map(int, input().strip().split()))
+B = list(map(int, input().strip().split()))
+
+# Compute the cartesian product and print the result
+for item in product(A, B):
+    print(item, end=" ")
