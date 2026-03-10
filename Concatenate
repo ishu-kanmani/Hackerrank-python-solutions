@@ -1,0 +1,26 @@
+import numpy as np
+
+# Read N, M, and P from the first line of input
+n_m_p = list(map(int, input().split()))
+N = n_m_p[0]
+M = n_m_p[1]
+P = n_m_p[2]
+
+# Read the first array (N rows, P columns)
+arr1 = []
+for _ in range(N):
+    arr1.append(list(map(int, input().split())))
+array1 = np.array(arr1)
+
+# Read the second array (M rows, P columns)
+arr2 = []
+for _ in range(M):
+    arr2.append(list(map(int, input().split())))
+array2 = np.array(arr2)
+
+# Concatenate the arrays along axis 0 and print the result
+print(np.concatenate((array1, array2), axis=0))
+
+
+
+
