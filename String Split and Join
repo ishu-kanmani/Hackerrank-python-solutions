@@ -1,0 +1,14 @@
+def split_and_join(line):
+    # Split the string into a list of words using space as a delimiter
+    words = line.split(" ")
+    
+    # Join the list of words using a hyphen as a separator
+    result = "-".join(words)
+    
+    return result
+
+if __name__ == '__main__':
+    # The following part handles input/output and is usually provided by HackerRank
+    line = input()
+    result = split_and_join(line)
+    print(result)
