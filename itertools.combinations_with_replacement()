@@ -1,0 +1,10 @@
+from itertools import combinations_with_replacement
+
+s, k = input().split()
+# Sort the string to ensure combinations are in lexicographical order
+s_sorted = sorted(s)
+k = int(k)
+
+# Generate combinations and print each one joined into a string
+for c in combinations_with_replacement(s_sorted, k):
+    print("".join(c))
