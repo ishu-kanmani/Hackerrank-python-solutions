@@ -1,0 +1,8 @@
+import numpy as np
+
+# Read the input, split by spaces, map to integers, and convert to a NumPy array
+input_list = list(map(int, input().split()))
+my_array = np.array(input_list)
+
+# Reshape the 1D array to a 3x3 array and print the result
+print(np.reshape(my_array, (3, 3)))
