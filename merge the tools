@@ -1,0 +1,17 @@
+from collections import OrderedDict
+
+def merge_the_tools(string, k):
+    # Iterate through the main string in chunks of size k
+    for i in range(0, len(string), k):
+        # Extract the substring (t_i)
+        substring = string[i:i + k]
+        
+        # Use OrderedDict.fromkeys() to create a sequence of unique characters
+        # while preserving their initial order.
+        # In Python 3.2+, dict.fromkeys() maintains insertion order, 
+        # so OrderedDict is not strictly necessary but makes the intent clear.
+        unique_chars = OrderedDict.fromkeys(substring)
+        
+        # Join the unique characters into a new string (u_i) and print
+        print(''.join(unique_chars))
+
