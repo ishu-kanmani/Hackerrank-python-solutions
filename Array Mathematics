@@ -1,0 +1,16 @@
+import numpy as np
+
+# Read dimensions
+n, m = map(int, input().split())
+
+# Read arrays A and B
+a = np.array([input().split() for _ in range(n)], dtype=int)
+b = np.array([input().split() for _ in range(n)], dtype=int)
+
+# Print results of array mathematics
+print(a + b)
+print(a - b)
+print(a * b)
+print(a // b)
+print(a % b)
+print(a ** b)
