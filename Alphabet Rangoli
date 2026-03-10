@@ -1,0 +1,32 @@
+import string
+
+def print_rangoli(size):
+    """
+    Prints an alphabet rangoli of a given size.
+
+    :param size: An integer representing the size of the rangoli.
+    """
+    # Get the lowercase alphabet
+    alpha = string.ascii_lowercase
+    # List to store each line of the rangoli
+    lines = []
+    
+    for i in range(size):
+        # Slice the alphabet from 'i' to 'size'
+        # e.g., for size 3, i=0: 'abc'; i=1: 'bc'; i=2: 'c'
+        s = "-".join(alpha[i:size])
+        
+        # Create the full line by reversing the slice (without the first char to avoid duplicates)
+        # and centering it with hyphens. The total width is fixed at 4*size-3.
+        # e.g., for size 3, i=0: 'c-b-a-b-c'; i=1: '--c-b-c--'; i=2: '----c----'
+        line = (s[::-1] + s[1:]).center(4*size - 3, '-')
+        lines.append(line)
+    
+    # Print the upper part in reverse order (excluding the center line which will be printed next)
+    for i in range(size - 1, 0, -1):
+        print(lines[i])
+    
+    # Print the lower part (including the center line, as the first element of 'lines' is the center)
+    for i in range(size):
+        print(lines[i])
+
