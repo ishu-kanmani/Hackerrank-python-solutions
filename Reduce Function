@@ -1,0 +1,16 @@
+from fractions import Fraction
+from functools import reduce
+from fractions import Fraction
+from functools import reduce
+
+def product(fracs):
+    # reduce applies the lambda function (multiplication) cumulatively 
+    # to all elements in the fracs list
+    t = reduce(lambda x, y: x * y, fr
+
+if __name__ == '__main__':
+    fracs = []
+    for _ in range(int(input())):
+        fracs.append(Fraction(*map(int, input().split())))
+    result = product(fracs)
+    print(*result)
