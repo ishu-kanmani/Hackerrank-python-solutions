@@ -1,0 +1,14 @@
+# Read N (students) and X (subjects)
+n, x = map(int, input().split())
+
+# Read marks for each subject into a list of lists
+marks_by_subject = []
+for _ in range(x):
+    marks_by_subject.append(map(float, input().split()))
+
+# Use zip(*marks_by_subject) to group marks by student
+# Each tuple in student_marks will contain all scores for one student
+for student_scores in zip(*marks_by_subject):
+    average = sum(student_scores) / x
+    print(f"{average:.1f}")
+
