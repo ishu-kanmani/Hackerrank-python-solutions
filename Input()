@@ -1,0 +1,9 @@
+# Read x and k from the first line
+x, k = map(int, input().split())
+
+# Read the polynomial expression from the second line
+polynomial = input()
+
+# eval() computes the expression string using the variable x
+# We compare the calculated result directly to k
+print(eval(polynomial) == k)
