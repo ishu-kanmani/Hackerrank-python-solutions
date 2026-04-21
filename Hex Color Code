@@ -1,0 +1,26 @@
+import re
+import sys
+
+# Step 1: Read all lines of CSS code from standard input
+# sys.stdin.read() allows us to process the entire snippet at once
+css_data = sys.stdin.read()
+
+# Step 2: Use regex to extract everything inside curly braces { ... }
+# The [^}]+ matches any character except '}', and re.DOTALL ensures it works across multiple lines
+blocks = re.findall(r'\{([^}]+)\}', css_data, re.DOTALL)
+
+# Step 3: Iterate through each extracted block to find valid Hex codes
+for block in blocks:
+    # Regex Pattern Breakdown:
+    # #              : Matches the literal '#'
+    # (?:            : Non-capturing group for the hex digits
+    #   [0-9a-fA-F]{6} : Matches exactly 6 hex digits
+    #   |              : OR
+    #   [0-9a-fA-F]{3} : Matches exactly 3 hex digits
+    # )
+    # (?=[;,\)\s])   : Positive lookahead to ensure the code is followed by 
+    #                  a separator (semicolon, comma, closing bracket, or space)
+    matches = re.findall(r'#(?:[0-9a-fA-F]{6}|[0-9a-fA-F]{3})(?=[;,\)\s])', block)
+    
+    for hex_code in matches:
+        print(hex_code)
