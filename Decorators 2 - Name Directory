@@ -1,0 +1,31 @@
+import operator
+     
+         import operator
+
+def person_lister(f):
+    def inner(people):
+        # Sort the people list based on age (index 2) converted to integer
+        # This ensures the youngest person comes first
+        sorted_people = sorted(people, key=lambda x: int(x[2]))
+        
+        # Apply the name formatting function to each person in the sorted list
+        return [f(person) for person in sorted_people]
+    return inner
+
+@person_lister
+def name_format(person):
+    # person[3] is sex, person[0] is first name, person[1] is last name
+    return ("Mr. " if person[3] == "M" else "Ms. ") + person[0] + " " + person[1]
+
+if __name__ == '__main__':
+    # Input handling as per problem format
+    people = [input().split() for i in range(int(input()))]
+    print(*name_format(people), sep='\n')
+
+@person_lister
+def name_format(person):
+    return ("Mr. " if person[3] == "M" else "Ms. ") + person[0] + " " + person[1]
+
+if __name__ == '__main__':
+    people = [input().split() for i in range(int(input()))]
+    print(*name_format(people), sep='\n')
