@@ -1,0 +1,8 @@
+m = int(input())
+a = set(map(int, input().split()))
+n = int(input())
+b = set(map(int, input().split()))
+result_set = a ^ b
+sorted_result = sorted(list(result_set))
+for item in sorted_result:
+    print(item)
